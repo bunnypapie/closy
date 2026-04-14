@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Closy - จัดชุด</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css" />
+</head>
+<body data-page="generate">
+  <header class="site-header">
+    <div class="container nav-wrap">
+      <a class="logo" href="index.html"><span class="logo-badge">C</span><span>Closy</span></a>
+      <nav class="main-nav">
+        <a href="index.html">หน้าแรก</a>
+        <a href="upload.html">อัปโหลด</a>
+        <a href="wardrobe.html">ตู้เสื้อผ้า</a>
+        <a href="generate.html" class="active">จัดชุด</a>
+        <a href="saved.html">ชุดที่บันทึก</a>
+        <a href="login.html">เข้าสู่ระบบ</a>
+      </nav>
+      <div class="nav-user" id="navUserBox"></div>
+    </div>
+  </header>
+
+  <main class="container page-section">
+    <div class="section-title-row">
+      <div>
+        <h1>Generate Outfit</h1>
+        <p class="subtle">เลือกได้ทั้งสุ่มตาม Mood หรือแนะนำจาก Occasion</p>
+      </div>
+    </div>
+
+    <section class="card">
+      <div class="tab-row">
+        <button class="tab-btn active" data-tab="random">Random</button>
+        <button class="tab-btn" data-tab="occasion">Suggest by Occasion</button>
+      </div>
+
+      <div id="randomPanel" class="tab-panel active">
+        <div class="filter-grid compact">
+          <div class="field">
+            <label for="randomMood">Mood</label>
+            <select id="randomMood"></select>
+          </div>
+          <div class="field">
+            <label for="randomWeather">Weather</label>
+            <select id="randomWeather">
+              <option value="all">ทุกสภาพอากาศ</option>
+              <option value="ร้อน">ร้อน</option>
+              <option value="ฝนตก">ฝนตก</option>
+              <option value="เย็น">เย็น</option>
+              <option value="ได้ทุกสภาพอากาศ">ได้ทุกสภาพอากาศ</option>
+            </select>
+          </div>
+          <div class="field align-end">
+            <button class="btn btn-primary full-width" id="randomOutfitBtn">สุ่มชุด</button>
+          </div>
+        </div>
+      </div>
+
+      <div id="occasionPanel" class="tab-panel">
+        <div class="filter-grid compact">
+          <div class="field">
+            <label for="occasionSelect">Occasion</label>
+            <select id="occasionSelect"></select>
+          </div>
+          <div class="field">
+            <label for="occasionMood">Mood</label>
+            <select id="occasionMood"></select>
+          </div>
+          <div class="field">
+            <label for="occasionWeather">Weather</label>
+            <select id="occasionWeather">
+              <option value="all">ทุกสภาพอากาศ</option>
+              <option value="ร้อน">ร้อน</option>
+              <option value="ฝนตก">ฝนตก</option>
+              <option value="เย็น">เย็น</option>
+              <option value="ได้ทุกสภาพอากาศ">ได้ทุกสภาพอากาศ</option>
+            </select>
+          </div>
+          <div class="field align-end">
+            <button class="btn btn-primary full-width" id="suggestOutfitBtn">แนะนำชุด</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="result-shell" id="resultShell">
+      <div class="empty-state card" id="generateEmpty">
+        <div class="empty-emoji">🪄</div>
+        <h3>ยังไม่มีชุดที่สร้าง</h3>
+        <p>เลือกเงื่อนไขด้านบนแล้วกดสุ่มหรือแนะนำชุด</p>
+      </div>
+
+      <div id="outfitResult" class="hidden">
+        <div class="section-title-row">
+          <div>
+            <h2>Outfit Result</h2>
+            <p class="subtle" id="outfitMeta"></p>
+          </div>
+          <div class="three-actions">
+            <button class="btn btn-secondary" id="rerollBtn">สุ่มใหม่</button>
+            <button class="btn btn-primary" id="saveOutfitBtn">บันทึกชุดนี้</button>
+            <button class="btn btn-ghost" id="shareOutfitBtn">แชร์ข้อความ</button>
+          </div>
+        </div>
+
+        <div class="outfit-grid" id="outfitGrid"></div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-wrap">
+      <span>Closy — ลองสุ่มหลายรอบจนกว่าจะเจอชุดที่ชอบ</span>
+      <span id="syncFooterStatus"></span>
+    </div>
+  </footer>
+
+  <div id="toastContainer" class="toast-container"></div>
+  <script src="assets/js/storage.js"></script>
+  <script src="assets/js/app.js"></script>
+  <script src="assets/js/generate.js"></script>
+</body>
+</html>

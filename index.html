@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Closy - หน้าแรก</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css" />
+</head>
+<body data-page="home">
+  <header class="site-header">
+    <div class="container nav-wrap">
+      <a class="logo" href="index.html">
+        <span class="logo-badge">C</span>
+        <span>Closy</span>
+      </a>
+      <nav class="main-nav">
+        <a href="index.html" class="active">หน้าแรก</a>
+        <a href="upload.html">อัปโหลด</a>
+        <a href="wardrobe.html">ตู้เสื้อผ้า</a>
+        <a href="generate.html">จัดชุด</a>
+        <a href="saved.html">ชุดที่บันทึก</a>
+        <a href="login.html">เข้าสู่ระบบ</a>
+      </nav>
+      <div class="nav-user" id="navUserBox"></div>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container hero-grid">
+        <div>
+          <span class="pill">Outfit Planner ที่ใช้งานได้จริง</span>
+          <h1>จัดชุดง่ายขึ้นทุกวัน<br>ด้วยตู้เสื้อผ้าของคุณเอง</h1>
+          <p class="hero-text">
+            อัปโหลดเสื้อผ้า เลือกอารมณ์หรือโอกาส แล้วให้ Closy ช่วยสุ่มชุดให้ทันที
+            พร้อมบันทึกชุดและซิงก์ข้อมูลเมื่อเข้าสู่ระบบ
+          </p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="upload.html">เริ่มเพิ่มเสื้อผ้า</a>
+            <a class="btn btn-secondary" href="generate.html">จัดชุดตอนนี้</a>
+          </div>
+        </div>
+        <div class="hero-card card soft-gradient">
+          <h3>ทำอะไรได้บ้าง</h3>
+          <div class="feature-list">
+            <div class="feature-item">
+              <strong>Upload Clothes</strong>
+              <span>เพิ่มรูปเสื้อผ้า พร้อมหมวดหมู่ Mood และ Occasion</span>
+            </div>
+            <div class="feature-item">
+              <strong>Wardrobe</strong>
+              <span>ดู แก้ไข ลบ และค้นหาเสื้อผ้าทุกชิ้นได้</span>
+            </div>
+            <div class="feature-item">
+              <strong>Generate Outfit</strong>
+              <span>สุ่มชุดจากข้อมูลจริงที่คุณบันทึกไว้</span>
+            </div>
+            <div class="feature-item">
+              <strong>Save & Sync</strong>
+              <span>บันทึกชุดลงเครื่อง และซิงก์ข้อมูลเมื่อ Login</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="stats-section">
+      <div class="container">
+        <div class="section-title-row">
+          <h2>ภาพรวมการใช้งาน</h2>
+          <span class="subtle">อัปเดตจากข้อมูลจริงในระบบ</span>
+        </div>
+        <div class="stats-grid" id="homeStats"></div>
+      </div>
+    </section>
+
+    <section class="container quick-section">
+      <div class="section-title-row">
+        <h2>เริ่มใช้งานได้ทันที</h2>
+      </div>
+      <div class="quick-grid">
+        <a class="card quick-card" href="upload.html">
+          <div class="icon-circle">📸</div>
+          <h3>เพิ่มเสื้อผ้า</h3>
+          <p>อัปโหลดรูป ใส่หมวดหมู่ และบันทึกเข้า wardrobe</p>
+        </a>
+        <a class="card quick-card" href="wardrobe.html">
+          <div class="icon-circle">👕</div>
+          <h3>ดูตู้เสื้อผ้า</h3>
+          <p>ค้นหา กรอง และแก้ไขข้อมูลเสื้อผ้าแต่ละชิ้น</p>
+        </a>
+        <a class="card quick-card" href="generate.html">
+          <div class="icon-circle">✨</div>
+          <h3>สุ่มหรือแนะนำชุด</h3>
+          <p>เลือก Mood, Occasion และ Weather เพื่อจัดชุดที่เหมาะ</p>
+        </a>
+        <a class="card quick-card" href="saved.html">
+          <div class="icon-circle">💾</div>
+          <h3>ดูชุดที่บันทึก</h3>
+          <p>กลับมาดูชุดโปรด และลบหรือเปิดดูรายละเอียดได้</p>
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-wrap">
+      <span>Closy — Mix your day, your way.</span>
+      <span id="syncFooterStatus"></span>
+    </div>
+  </footer>
+
+  <div id="toastContainer" class="toast-container"></div>
+  <script src="assets/js/storage.js"></script>
+  <script src="assets/js/app.js"></script>
+  <script src="assets/js/home.js"></script>
+</body>
+</html>

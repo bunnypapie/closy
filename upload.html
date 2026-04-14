@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Closy - อัปโหลดเสื้อผ้า</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css" />
+</head>
+<body data-page="upload">
+  <header class="site-header">
+    <div class="container nav-wrap">
+      <a class="logo" href="index.html"><span class="logo-badge">C</span><span>Closy</span></a>
+      <nav class="main-nav">
+        <a href="index.html">หน้าแรก</a>
+        <a href="upload.html" class="active">อัปโหลด</a>
+        <a href="wardrobe.html">ตู้เสื้อผ้า</a>
+        <a href="generate.html">จัดชุด</a>
+        <a href="saved.html">ชุดที่บันทึก</a>
+        <a href="login.html">เข้าสู่ระบบ</a>
+      </nav>
+      <div class="nav-user" id="navUserBox"></div>
+    </div>
+  </header>
+
+  <main class="container page-section">
+    <div class="section-title-row">
+      <div>
+        <h1>อัปโหลดเสื้อผ้า</h1>
+        <p class="subtle">เพิ่มข้อมูลเสื้อผ้า 1 ชิ้นเข้า wardrobe พร้อมความหมายที่เป็นของคุณ</p>
+      </div>
+    </div>
+
+    <div class="upload-layout">
+      <section class="card upload-preview-card">
+        <h2>รูปภาพเสื้อผ้า</h2>
+        <label class="upload-box" id="uploadBox">
+          <input type="file" id="itemImage" accept="image/*" hidden />
+          <div id="uploadPlaceholder">
+            <div class="upload-emoji">🖼️</div>
+            <p>คลิกเพื่อเลือกรูป หรือวางรูปที่นี่</p>
+            <span class="subtle">รองรับ JPG, PNG, WEBP</span>
+          </div>
+          <img id="previewImage" alt="Preview" class="preview-image hidden" />
+        </label>
+        <div class="upload-actions two-buttons">
+          <button class="btn btn-secondary" type="button" id="changeImageBtn">เลือกรูป</button>
+          <button class="btn btn-ghost" type="button" id="removeImageBtn">ลบรูป</button>
+        </div>
+      </section>
+
+      <section class="card form-card">
+        <form id="itemForm" class="form-grid">
+          <div class="field full-width">
+            <label for="itemName">ชื่อเสื้อผ้า</label>
+            <input id="itemName" name="itemName" type="text" placeholder="เช่น เสื้อยืดสีขาว" required />
+          </div>
+
+          <div class="field">
+            <label for="mainCategory">หมวดหลัก</label>
+            <select id="mainCategory" name="mainCategory" required>
+              <option value="">เลือกหมวดหลัก</option>
+              <option value="Top">Top</option>
+              <option value="Bottom">Bottom</option>
+              <option value="Shoes">Shoes</option>
+              <option value="Outerwear">Outerwear</option>
+            </select>
+          </div>
+
+          <div class="field">
+            <label for="subCategory">หมวดย่อย</label>
+            <select id="subCategory" name="subCategory" required>
+              <option value="">เลือกหมวดย่อย</option>
+            </select>
+          </div>
+
+          <div class="field full-width">
+            <label for="color">สี</label>
+            <input id="color" name="color" type="text" placeholder="เช่น ขาว, ชมพูอ่อน, ฟ้า" required />
+          </div>
+
+          <div class="field full-width">
+            <label>Occasion</label>
+            <div class="checkbox-grid" id="occasionGroup"></div>
+          </div>
+
+          <div class="field full-width">
+            <label>Mood</label>
+            <div class="checkbox-grid" id="moodGroup"></div>
+          </div>
+
+          <div class="field">
+            <label for="weather">Weather</label>
+            <select id="weather" name="weather" required>
+              <option value="">เลือกสภาพอากาศ</option>
+              <option value="ร้อน">ร้อน</option>
+              <option value="ฝนตก">ฝนตก</option>
+              <option value="เย็น">เย็น</option>
+              <option value="ได้ทุกสภาพอากาศ">ได้ทุกสภาพอากาศ</option>
+            </select>
+          </div>
+
+          <div class="field">
+            <label for="comfort">Comfort (1-5)</label>
+            <input id="comfort" name="comfort" type="range" min="1" max="5" value="3" />
+            <div class="range-value" id="comfortValue">3</div>
+          </div>
+
+          <div class="field">
+            <label for="confidence">Confidence (1-5)</label>
+            <input id="confidence" name="confidence" type="range" min="1" max="5" value="3" />
+            <div class="range-value" id="confidenceValue">3</div>
+          </div>
+
+          <div class="field full-width">
+            <label for="meaning">ความหมายส่วนตัวของเสื้อผ้าชิ้นนี้</label>
+            <textarea id="meaning" name="meaning" rows="4" placeholder="เช่น ใส่ตัวนี้แล้วมั่นใจ เหมาะกับวันที่ต้องรีบไปเรียน"></textarea>
+          </div>
+
+          <div class="field full-width form-actions two-buttons">
+            <button class="btn btn-primary" type="submit" id="saveItemBtn">บันทึกเสื้อผ้า</button>
+            <button class="btn btn-secondary" type="reset" id="resetItemBtn">ล้างข้อมูล</button>
+          </div>
+        </form>
+      </section>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-wrap">
+      <span>Closy — เพิ่มเสื้อผ้าได้ทันทีจากหน้านี้</span>
+      <span id="syncFooterStatus"></span>
+    </div>
+  </footer>
+
+  <div id="toastContainer" class="toast-container"></div>
+  <script src="assets/js/storage.js"></script>
+  <script src="assets/js/app.js"></script>
+  <script src="assets/js/upload.js"></script>
+</body>
+</html>

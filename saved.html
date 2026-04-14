@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Closy - ชุดที่บันทึก</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css" />
+</head>
+<body data-page="saved">
+  <header class="site-header">
+    <div class="container nav-wrap">
+      <a class="logo" href="index.html"><span class="logo-badge">C</span><span>Closy</span></a>
+      <nav class="main-nav">
+        <a href="index.html">หน้าแรก</a>
+        <a href="upload.html">อัปโหลด</a>
+        <a href="wardrobe.html">ตู้เสื้อผ้า</a>
+        <a href="generate.html">จัดชุด</a>
+        <a href="saved.html" class="active">ชุดที่บันทึก</a>
+        <a href="login.html">เข้าสู่ระบบ</a>
+      </nav>
+      <div class="nav-user" id="navUserBox"></div>
+    </div>
+  </header>
+
+  <main class="container page-section">
+    <div class="section-title-row">
+      <div>
+        <h1>Saved Outfits</h1>
+        <p class="subtle">ชุดที่คุณเคยบันทึกไว้ทั้งหมด</p>
+      </div>
+    </div>
+
+    <section id="savedList" class="saved-grid"></section>
+  </main>
+
+  <div class="modal hidden" id="savedDetailModal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2>รายละเอียดชุด</h2>
+        <button class="icon-btn" id="closeSavedDetailModal">✕</button>
+      </div>
+      <div id="savedDetailContent"></div>
+    </div>
+  </div>
+
+  <footer class="site-footer">
+    <div class="container footer-wrap">
+      <span>Closy — ชุดที่บันทึกไว้พร้อมกลับมาดูเมื่อไรก็ได้</span>
+      <span id="syncFooterStatus"></span>
+    </div>
+  </footer>
+
+  <div id="toastContainer" class="toast-container"></div>
+  <script src="assets/js/storage.js"></script>
+  <script src="assets/js/app.js"></script>
+  <script src="assets/js/saved.js"></script>
+</body>
+</html>

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Closy - เข้าสู่ระบบ</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css" />
+</head>
+<body data-page="login">
+  <header class="site-header">
+    <div class="container nav-wrap">
+      <a class="logo" href="index.html"><span class="logo-badge">C</span><span>Closy</span></a>
+      <nav class="main-nav">
+        <a href="index.html">หน้าแรก</a>
+        <a href="upload.html">อัปโหลด</a>
+        <a href="wardrobe.html">ตู้เสื้อผ้า</a>
+        <a href="generate.html">จัดชุด</a>
+        <a href="saved.html">ชุดที่บันทึก</a>
+        <a href="login.html" class="active">เข้าสู่ระบบ</a>
+      </nav>
+      <div class="nav-user" id="navUserBox"></div>
+    </div>
+  </header>
+
+  <main class="container page-section login-page">
+    <section class="card login-card" id="loginCard">
+      <div class="section-title-row login-head">
+        <div>
+          <h1>เข้าสู่ระบบ</h1>
+          <p class="subtle">สำหรับซิงก์ข้อมูล wardrobe และ outfits ขึ้น cloud จำลอง</p>
+        </div>
+      </div>
+      <form id="loginForm" class="form-grid">
+        <div class="field full-width">
+          <label for="displayName">ชื่อที่ใช้แสดง</label>
+          <input id="displayName" type="text" placeholder="เช่น Tar" required />
+        </div>
+        <div class="field full-width">
+          <label for="email">อีเมล</label>
+          <input id="email" type="email" placeholder="example@email.com" required />
+        </div>
+        <div class="field full-width">
+          <label for="password">รหัสผ่าน</label>
+          <input id="password" type="password" placeholder="ใส่อะไรก็ได้สำหรับเดโมนี้" required />
+        </div>
+        <div class="field full-width form-actions two-buttons">
+          <button class="btn btn-primary" type="submit">Login และ Sync</button>
+          <button class="btn btn-secondary" type="button" id="guestBtn">ใช้งานแบบ Guest</button>
+        </div>
+      </form>
+    </section>
+
+    <section class="card profile-card hidden" id="profileCard">
+      <div class="section-title-row">
+        <div>
+          <h1>โปรไฟล์ผู้ใช้</h1>
+          <p class="subtle">สถานะการใช้งานปัจจุบัน</p>
+        </div>
+      </div>
+      <div class="profile-grid" id="profileInfo"></div>
+      <div class="two-buttons top-space">
+        <button class="btn btn-secondary" id="forceSyncBtn">ซิงก์ข้อมูลอีกครั้ง</button>
+        <button class="btn btn-ghost" id="logoutBtn">ออกจากระบบ</button>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-wrap">
+      <span>Closy — Login เพื่อเก็บข้อมูลต่อเนื่อง</span>
+      <span id="syncFooterStatus"></span>
+    </div>
+  </footer>
+
+  <div id="toastContainer" class="toast-container"></div>
+  <script src="assets/js/storage.js"></script>
+  <script src="assets/js/app.js"></script>
+  <script src="assets/js/login.js"></script>
+</body>
+</html>
